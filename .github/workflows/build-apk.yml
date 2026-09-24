@@ -18,16 +18,17 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Install Android SDK (Old cmdline-tools compatible with JDK8)
+      - name: Install Android SDK (cmdline-tools 5.0 JDK8 compatible)
         run: |
           mkdir -p $ANDROID_HOME/cmdline-tools
           cd $ANDROID_HOME/cmdline-tools
-          wget https://dl.google.com/android/repository/cmdline-tools-5.0-linux.zip
-          unzip cmdline-tools-5.0-linux.zip
+          wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip
+          unzip commandlinetools-linux-6609375_latest.zip
           mv cmdline-tools latest
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           echo "PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_ENV
           sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-28" "build-tools;28.0.3"
+          yes | sdkmanager --licenses
 
       - name: Prepare Gradle Wrapper 4.4.1
         run: |
