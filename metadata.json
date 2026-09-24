@@ -1,0 +1,6 @@
+{
+  "name": "星界战锋",
+  "description": "高档沉浸式3D第一人称科幻射击手游，具备高帧率粒子光影、战术武器系统、史诗战役剧情与机甲决战体验。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

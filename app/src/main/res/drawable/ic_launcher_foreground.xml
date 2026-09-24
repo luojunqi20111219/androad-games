@@ -1,0 +1,68 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Reticle Ring with Gap Brackets -->
+    <path
+        android:pathData="M38,30 A26,26 0 0,1 70,30"
+        android:strokeWidth="3.2"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M78,38 A26,26 0 0,1 78,70"
+        android:strokeWidth="3.2"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M70,78 A26,26 0 0,1 38,78"
+        android:strokeWidth="3.2"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M30,70 A26,26 0 0,1 30,38"
+        android:strokeWidth="3.2"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+
+    <!-- Tactical Corner Lock Markers -->
+    <path
+        android:pathData="M24,34 L24,24 L34,24"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF0055"
+        android:strokeLineCap="square" />
+    <path
+        android:pathData="M84,34 L84,24 L74,24"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF0055"
+        android:strokeLineCap="square" />
+    <path
+        android:pathData="M24,74 L24,84 L34,84"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF0055"
+        android:strokeLineCap="square" />
+    <path
+        android:pathData="M84,74 L84,84 L74,84"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FF0055"
+        android:strokeLineCap="square" />
+
+    <!-- Center Crosshairs -->
+    <path
+        android:pathData="M54,34 L54,46 M54,62 L54,74 M34,54 L46,54 M62,54 L74,54"
+        android:strokeWidth="2.8"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Inner Target Diamond Core -->
+    <path
+        android:pathData="M54,48 L60,54 L54,60 L48,54 Z"
+        android:fillColor="#FF0055" />
+
+    <!-- Center Laser Dot -->
+    <path
+        android:pathData="M54,54 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"
+        android:fillColor="#00E5FF" />
+</vector>
