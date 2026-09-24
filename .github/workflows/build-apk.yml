@@ -18,21 +18,16 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # 不再用 setup-android，直接安装 android-sdk 依赖
-      - name: Install Android SDK dependencies
+      - name: Install Android SDK & Gradle
         run: |
           sudo apt-get update
-          sudo apt-get install -y android-sdk
+          sudo apt-get install -y android-sdk gradle
+
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper
 
       - name: Make gradlew executable
-        run: |
-          if [ -f gradlew ]; then
-            chmod +x gradlew
-          else
-            echo "gradlew not found, generating wrapper"
-            ./gradlew wrapper
-            chmod +x gradlew
-          fi
+        run: chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
