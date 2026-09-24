@@ -11,6 +11,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 1. 安装JDK17：用来跑新版sdkmanager安装Android SDK
+      - name: Setup JDK 17
+        uses: actions/setup-java@v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      # 2. 切换到JDK8：用来编译老项目 Gradle4.4.1
       - name: Setup JDK 8
         uses: actions/setup-java@v5
         with:
@@ -18,16 +29,13 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
-      # 如果仓库没有gradlew，直接下载gradle wrapper脚本文件，而不是apt安装gradle
-      - name: Download Gradle Wrapper if missing
+      # 准备gradle wrapper，固定4.4.1
+      - name: Prepare Gradle Wrapper
         run: |
           if [ ! -f gradlew ]; then
-            curl -s https://raw.githubusercontent.com/gradle/gradle/master/subprojects/base-services/src/main/resources/gradle-wrapper.sh -o gradlew
+            curl -s https://raw.githubusercontent.com/gradle/gradle/v4.4.1/subprojects/base-services/src/main/resources/gradle-wrapper.sh -o gradlew
             mkdir -p gradle/wrapper
-            curl -s https://raw.githubusercontent.com/gradle/gradle/master/subprojects/base-services/src/main/resources/gradle-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
+            curl -s https://raw.githubusercontent.com/gradle/gradle/v4.4.1/subprojects/base-services/src/main/resources/gradle-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
             echo 'distributionUrl=https\://services.gradle.org/distributions/gradle-4.4.1-bin.zip' > gradle/wrapper/gradle-wrapper.properties
           fi
           chmod +x gradlew
