@@ -24,11 +24,12 @@ jobs:
           cd $ANDROID_HOME/cmdline-tools
           wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip
           unzip commandlinetools-linux-6609375_latest.zip
-          mv cmdline-tools latest
+          # 重点：解压出来是 tools，重命名为 latest
+          mv tools latest
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           echo "PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_ENV
-          sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-28" "build-tools;28.0.3"
           yes | sdkmanager --licenses
+          sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-28" "build-tools;28.0.3"
 
       - name: Prepare Gradle Wrapper 4.4.1
         run: |
